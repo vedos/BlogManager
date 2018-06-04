@@ -1,0 +1,27 @@
+<div class="col-md-offset-2 col-md-8">
+    <h3>The User List</h3>
+    <hr />
+    <p *ngIf="!users"><em>Loading...</em></p>
+    <input [formControl]="queryField" class="form-control col-md-4" type="text" id="keyword" placeholder="Search..." autofocus />
+    <table class='table table-striped' *ngIf="users">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Blogs</th>
+                <th>View Profile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | paginate: { itemsPerPage: pageSize, currentPage: p }">
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.numberOfBlogs }}</td>
+                <td><a  [routerLink]="['/user', user.id]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

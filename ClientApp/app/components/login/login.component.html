@@ -1,0 +1,23 @@
+﻿
+<!-- LOGIN FORM -->
+<div class="col-md-offset-4 col-md-4">
+        <div class="text-center" style="padding:50px 0">
+            <h3>Login / Blog Manager</h3>
+            <hr />
+            <!-- Main Form -->
+            <form id="login-form" class="form-login text-left" (ngSubmit)="onSubmit()" [formGroup]="signupfrm">
+                <div class="form-group">
+                    <label for="lg_username" class="sr-only">Username</label>
+                    <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username" required="" formControlName="username">
+                </div>
+                <div class="form-group">
+                    <label for="lg_password" class="sr-only">Password</label>
+                    <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password" required="" formControlName="password">
+                </div>
+                <p class="text-danger"><em>{{ error }}</em></p>
+                <input type="submit" class="btn btn-default" value="Sign in" />
+
+            </form>
+            <!-- end:Main Form -->
+        </div>
+</div>

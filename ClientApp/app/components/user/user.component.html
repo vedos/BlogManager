@@ -1,0 +1,43 @@
+﻿<div class="col-md-offset-2 col-md-8">
+    <div *ngIf="user">
+        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+        <hr />
+        <div class="row alert alert-success">
+            <div class="col-md-10">
+                <p>User details</p>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" value="{{ user.firstName }}" />
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" value="{{ user.lastName }}" />
+            </div>
+            <div class="col-md-4">
+                <h5>{{ user.age }} years</h5>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <br />
+    <div>
+        <h4>Blogs</h4>
+        <p *ngIf="!blogs"><em>Loading...</em></p>
+
+        <table class='table' *ngIf="blogs">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Summary</th>
+                    <th>Publishing Date Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blog of blogs">
+                    <td>{{ blog.title }}</td>
+                    <td>{{ blog.summary }}</td>
+                    <td>{{ blog.publishingDateTime }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
